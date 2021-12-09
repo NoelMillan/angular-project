@@ -1,3 +1,5 @@
+import { CentersService } from './../../services/centers.service';
+import { Center } from './../../models/center';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentersComponent implements OnInit {
 
-  constructor() { }
+  centers: Center [] = [];
+  center: Center = {id: 0, location: "", name: "", description: "", img: "", interactivePoints: 0, reviews: 0}
+  centerIndex = 0;
+
+  constructor(private centersService: CentersService) {
+    this.centers = this.centersService.centers;
+  }
 
   ngOnInit(): void {
   }

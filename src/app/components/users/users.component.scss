@@ -1,0 +1,21 @@
+th{
+    color: black !important;
+}
+.item{
+    color: black;
+}
+#item-title{
+    font-size: 18px;
+}
+tr#table-cursor:hover{
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+.dialog-container{
+    display: flex;
+    align-items: center;
+}
+.dialog-container button{
+    margin-left: 10px;
+    padding: .3rem;
+}

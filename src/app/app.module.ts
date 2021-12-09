@@ -6,6 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 import {TableModule} from 'primeng/table';
 import {BadgeModule} from 'primeng/badge';
+import { MessagesModule } from 'primeng/messages';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {DialogModule} from 'primeng/dialog';
+import {GalleriaModule} from 'primeng/galleria';
+import {DividerModule} from 'primeng/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +35,12 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     PanelModule,
     CardModule,
     TableModule,
-    BadgeModule
+    ConfirmDialogModule,
+    BadgeModule,
+    MessagesModule,
+    DialogModule,
+    GalleriaModule,
+    DividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,10 @@
 <div class="container-item">
+    <p-messages [value]="msgs"></p-messages>
     <p-table [value]="users" [paginator]="true" [rows]="10" responsiveLayout="scroll"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
-                <b>Users</b>
+                <span class="item" id="item-title"><b>Users</b></span>
             </div>
         </ng-template>
         <ng-template pTemplate="header">
@@ -18,15 +19,22 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user>
-            <tr>
-                <td><b>{{user.id}}</b></td>
+            <tr id="table-cursor" (click)="showDialog(user)">
+                <td class="item"><b>{{user.id}}</b></td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
-                <td><b>{{user.email}}</b></td>
+                <td class="item"><b>{{user.email}}</b></td>
                 <td>{{user.password}}</td>
                 <td id="first"><p-badge [value]="user.centersVisited"></p-badge></td>
                 <td id="second"><p-badge [value]="user.reviews"></p-badge></td>
             </tr>
         </ng-template>
     </p-table>
+    <p-dialog header="{{userSelected.firstName}} {{userSelected.lastName}}" [(visible)]="display">
+        {{userSelected.firstName}} {{userSelected.lastName}} has visited <b>{{userSelected.centersVisited}}</b> centers and has <b>{{userSelected.reviews}}</b> reviews.
+        <br>
+        <br>
+        <div class="dialog-container"><b>Do you want to delete this user?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>
+    </p-dialog>
+    <p-confirmDialog header="Confirmation" icon="pi pi-times-circle"></p-confirmDialog>
 </div>
