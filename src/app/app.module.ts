@@ -11,6 +11,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DialogModule} from 'primeng/dialog';
 import {GalleriaModule} from 'primeng/galleria';
 import {DividerModule} from 'primeng/divider';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     MessagesModule,
     DialogModule,
     GalleriaModule,
-    DividerModule
+    DividerModule,
+    CascadeSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
