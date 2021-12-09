@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+.container-item{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 90%;
+    margin: auto;
+}
+.p-datatable-header{
+    border-radius: 10px 10px 0px 0px;
+}
+.p-badge{
+    border-radius: 5px !important;
+    padding: 0px !important;
+    width: 40px !important;
+}
+#first .p-badge{
+    background: pink !important;
+}
+#second .p-badge{
+    background: rgb(118, 255, 255) !important;
+}
+.p-paginator-bottom {
+    border-radius: 0px 0px 10px 10px !important;
+}

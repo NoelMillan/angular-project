@@ -1,0 +1,32 @@
+<div class="container-item">
+    <p-table [value]="users" [paginator]="true" [rows]="10" responsiveLayout="scroll"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <b>Users</b>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Centers Visited</th>
+                <th>Reviews</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td><b>{{user.id}}</b></td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td><b>{{user.email}}</b></td>
+                <td>{{user.password}}</td>
+                <td id="first"><p-badge [value]="user.centersVisited"></p-badge></td>
+                <td id="second"><p-badge [value]="user.reviews"></p-badge></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
