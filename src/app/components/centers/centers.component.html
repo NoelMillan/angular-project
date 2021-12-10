@@ -1,17 +1,25 @@
 <div class="container-item">
+    <div class="input-box">
+    <span>
+        <p-dropdown placeholder="Location" [options]="singleLocation" [(ngModel)]="inputFilter" (ngModelChange)="valueChange()" [editable]="true" (input)="valueChange()"></p-dropdown>
+    </span>
+    </div>
     <div class="container-galleria">
         <p-card>
             <div class="container-card">
-            <p-galleria [value]="centers" [containerStyle]="{'max-width': '550px', 'min-width': '550px'}" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true" [showThumbnails]="false" [(activeIndex)]="centerIndex">
-                <ng-template pTemplate="item" let-item>
-                    <img [src]="item.img" class="galleria-img" />
-                </ng-template>
-            </p-galleria>
-            <div class="container-card__text">
-                <span><b>{{centers[centerIndex].name}}</b></span>
-                <p-divider align="center"><span>{{centers[centerIndex].location}}</span></p-divider>
-                <span>{{centers[centerIndex].description}}</span>
-            </div>
+                <p-galleria [value]="centers" [containerStyle]="{'max-width': '550px', 'min-width': '550px'}" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true" [showThumbnails]="false" [(activeIndex)]="centerIndex">
+                    <ng-template pTemplate="item" let-center>
+                        <img src="{{centers[centerIndex].img}}" class="galleria-img">
+                    </ng-template>
+                </p-galleria>
+                <div *ngIf="centers.length != 0" class="container-card__text">
+                    <span><b>{{centers[centerIndex].name}}</b></span>
+                    <p-divider align="center"><span>{{centers[centerIndex].location}}</span></p-divider>
+                    <span>{{centers[centerIndex].description}}</span>
+                </div>
+                <div *ngIf="centers.length == 0" class="container-card__text">
+                    <span>No hay centros comerciales en la localidad {{inputFilter}}</span>
+                </div>
             </div>
         </p-card>
     </div>

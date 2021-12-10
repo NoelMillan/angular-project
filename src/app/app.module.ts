@@ -12,20 +12,21 @@ import {DialogModule} from 'primeng/dialog';
 import {GalleriaModule} from 'primeng/galleria';
 import {DividerModule} from 'primeng/divider';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { CentersComponent } from './components/centers/centers.component';
-import { IndicatorsComponent } from './components/indicators/indicators.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     CentersComponent,
-    IndicatorsComponent,
     AboutUsComponent
   ],
   imports: [
@@ -42,7 +43,10 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     DialogModule,
     GalleriaModule,
     DividerModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    FormsModule,
+    InputTextModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
