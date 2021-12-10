@@ -55,3 +55,12 @@ body{
 .p-galleria-item-nav span{
     color: rgb(255, 93, 120);
 }
+.p-timeline .p-timeline-event-marker {
+    border: 2px solid rgb(255, 93, 120) !important;
+}
+.p-timeline-event {
+    min-height: 130px !important;
+}
+.p-timeline-event:last-child {
+    min-height: 60px !important;
+}

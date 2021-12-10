@@ -14,6 +14,8 @@ import {DividerModule} from 'primeng/divider';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
+import {ChartModule} from 'primeng/chart';
+import {TimelineModule} from 'primeng/timeline';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,7 +48,9 @@ import { FormsModule } from '@angular/forms';
     CascadeSelectModule,
     FormsModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    ChartModule,
+    TimelineModule
   ],
   providers: [],
   bootstrap: [AppComponent]

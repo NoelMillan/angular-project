@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  events: any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.events = [
+      {status: 'Productivity', color: '#9C27B0'},
+      {status: 'Processing', color: '#673AB7'},
+      {status: 'Shipped', color: '#FF9800'},
+      {status: 'Delivered', color: '#607D8B'}
+  ];
   }
 
 }

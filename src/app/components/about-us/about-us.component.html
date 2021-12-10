@@ -1,1 +1,18 @@
-4
+<div class="container-item">
+    <div class="container-box">
+        <div class="box">
+            <div class="parallax container-background">
+                <span>Company</span>
+            </div>
+        </div>
+        <div class="box2">
+            <div>
+            <p-timeline [value]="events" align="alternate">
+                <ng-template pTemplate="content" let-event>
+                    <span id="box2-text">{{event.status}}</span>
+                </ng-template>
+            </p-timeline>
+            </div>
+        </div>
+    </div>
+</div>
