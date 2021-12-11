@@ -5,4 +5,4 @@
 #
 #### Capturas de pantalla
 #
-<img src="images/1.jpg" alt="Logo" width="200" height="250">
+<img src="1.jpg" alt="Logo" width="200" height="250">
