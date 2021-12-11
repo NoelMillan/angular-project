@@ -5,4 +5,4 @@
 #
 #### Capturas de pantalla
 #
-![Imagen 1](1.jpg)
+![Imagen 1](images/image.png)
