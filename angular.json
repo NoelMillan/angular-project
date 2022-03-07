@@ -108,6 +108,16 @@
               "../node_modules/chart.js/dist/Chart.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-project:build:production",
+            "firebaseProject": "femore-angular-ee033",
+            "firebaseHostingSite": "femore-angular-ee033"
+          }
         }
       }
     }

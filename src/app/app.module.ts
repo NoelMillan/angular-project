@@ -16,6 +16,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {ChartModule} from 'primeng/chart';
 import {TimelineModule} from 'primeng/timeline';
+import {PasswordModule} from 'primeng/password';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,10 @@ import { UsersComponent } from './components/users/users.component';
 import { CentersComponent } from './components/centers/centers.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FormsModule } from '@angular/forms';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,11 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     DropdownModule,
     ChartModule,
-    TimelineModule
+    PasswordModule,
+    TimelineModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

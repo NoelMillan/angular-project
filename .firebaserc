@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "femore-angular-ee033": {
+      "hosting": {
+        "angular-project": [
+          "femore-angular-ee033"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "femore-angular-ee033"
+  }
+}

@@ -64,3 +64,21 @@ body{
 .p-timeline-event:last-child {
     min-height: 60px !important;
 }
+.item-button{
+    margin-right: 60px;
+    .p-button.p-button-icon-only {
+        color: rgb(255, 137, 156) !important;
+        background-color: white;
+        border-color: rgb(255, 137, 156) !important;
+    }
+    .p-button.p-button-icon-only:hover {
+        color: white !important;
+        background-color: rgb(255, 137, 156) !important;
+        border-color: rgb(255, 93, 120) !important;
+    }
+    .p-button.p-button-icon-only:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgb(255, 93, 120) !important;
+        background-color: rgb(255, 137, 156) !important;
+        color: white !important;
+    }
+}

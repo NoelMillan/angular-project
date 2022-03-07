@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { CentersService } from './../../services/centers.service';
 import { Center } from './../../models/center';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./centers.component.scss']
 })
 export class CentersComponent implements OnInit {
+
+  lol: any;
 
   centers: Center[] = [];
   centersLocation: string[] = [];
@@ -47,6 +50,7 @@ export class CentersComponent implements OnInit {
 }
 
   valueChange(){
+    this.centerIndex = 0;
     this.inputFilterLower = this.inputFilter.toLowerCase();
     this.centers = this.centersService.centers.filter(center => center.location.toLowerCase().includes(this.inputFilterLower));
     console.log(this.centers)

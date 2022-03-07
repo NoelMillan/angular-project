@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import {ConfirmationService} from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
@@ -12,13 +13,18 @@ import { Message } from 'src/app/models/message';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = [];
   userSelected: User = {id: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: 0}
   msgs: Message[] = [];
-  display: boolean = false;
+  displaydelete: boolean = false;
+  displayuser: boolean = false;
+
+  users: User[] = [];
+
+  user: User = {centersVisited: 0, reviews: 0, email: "", firstName: "", lastName: "", password: ""}
 
   constructor(public userService: UsersService, private confirmationService: ConfirmationService) {
-    this.users = this.userService.users;
+    // this.users = this.userService.users;
+    this.userService.getUsers().subscribe(data => this.users = data);
   }
 
   ngOnInit(): void {
@@ -30,11 +36,13 @@ export class UsersComponent implements OnInit {
         accept: () => {
           this.msgs = [{severity:'error', summary:'Deleted', detail:'You have deleted the user'}];
           this.delete(user);
-          this.display = false;
+          this.displaydelete = false;
+          this.confirmationService.close()
       },
         reject: () => {
             this.msgs = [{severity:'warn', summary:'Rejected', detail:'You have rejected'}];
-            this.display = false;
+            this.displaydelete = false;
+            this.confirmationService.close()
       }
     });
   }
@@ -43,9 +51,13 @@ export class UsersComponent implements OnInit {
     this.users.splice(this.users.indexOf(user), 1);
   }
 
-  showDialog(user: User) {
-    this.display = true;
+  showDialogDelete(user: User) {
+    this.displaydelete = true;
     this.userSelected = user;
+  }
+
+  addUser(){
+    this.userService.addUser(this.user)
   }
 
 }
