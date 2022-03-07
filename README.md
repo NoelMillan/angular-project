@@ -3,6 +3,8 @@
 #
 ##### En este proyecto he realizado una versión de Femore a escritorio desde el punto de vista del administrador de la aplicación, en el que se puede gestionar y visualizar tanto los usuarios como los centros comerciales y sus localidades  almacenadas en la base de datos.
 #
+##### Para esta nueva versión del proyecto he añadido la posibilidad de añadir usuarios. Tanto los centros como los usuarios están almacenados en Firebase.
+#
 #### Capturas de pantalla
 #
 ### HOME
