@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 import { Message } from 'src/app/models/message';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-users',
@@ -13,7 +15,7 @@ import { Message } from 'src/app/models/message';
 })
 export class UsersComponent implements OnInit {
 
-  userSelected: User = {id: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: 0}
+  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: 0}
   msgs: Message[] = [];
   displaydelete: boolean = false;
   displayuser: boolean = false;
@@ -22,7 +24,7 @@ export class UsersComponent implements OnInit {
 
   user: User = {centersVisited: 0, reviews: 0, email: "", firstName: "", lastName: "", password: ""}
 
-  constructor(public userService: UsersService, private confirmationService: ConfirmationService) {
+  constructor(public userService: UsersService, private confirmationService: ConfirmationService, private auth: Auth) {
     // this.users = this.userService.users;
     this.userService.getUsers().subscribe(data => this.users = data);
   }
@@ -56,8 +58,26 @@ export class UsersComponent implements OnInit {
     this.userSelected = user;
   }
 
-  addUser(){
-    this.userService.addUser(this.user)
+  register(email:string, password: string): Promise<boolean>{
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then(
+        () => true,
+        error => {
+          console.error(error)
+          return false
+        }
+      )
+  }
+
+  async addUser(){
+    const connectionSuccess = await this.register(this.user.email, this.user.password)
+
+    if(connectionSuccess){
+      this.userService.addUser(this.user)
+    }
+    else{
+      console.log("error")
+    }
   }
 
 }

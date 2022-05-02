@@ -11,25 +11,21 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class CentersComponent implements OnInit {
 
-  lol: any;
-
   centers: Center[] = [];
-  centersLocation: string[] = [];
-  singleLocation: any;
   inputFilter = "";
   inputFilterLower = this.inputFilter.toLowerCase();
   centerIndex = 0;
   data: any;
   basicOptions: any;
 
+  locations = ["Málaga", "Sevilla", "Almería", "Granada"]
+
   constructor(public centersService: CentersService) {
-    this.centersLocation = this.centersService.centers.map(center => center.location);
-    this.singleLocation = [... new Set(this.centersLocation)]
-    this.centers = this.centersService.centers.filter(center => center.location.toLowerCase().includes(this.inputFilterLower));
+    this.centersService.getCenters().subscribe(data => this.centers = data.filter(center => center.location.toLowerCase().includes(this.inputFilterLower)))
   }
 
   ngOnInit() {
-    this.data = {
+    /*this.data = {
         datasets: [{
             data: [
                 1740,
@@ -45,14 +41,14 @@ export class CentersComponent implements OnInit {
             ],
             label: 'My dataset'
         }],
-        labels: this.singleLocation
-    };
+        labels: this.locations
+    };*/
 }
 
   valueChange(){
     this.centerIndex = 0;
     this.inputFilterLower = this.inputFilter.toLowerCase();
-    this.centers = this.centersService.centers.filter(center => center.location.toLowerCase().includes(this.inputFilterLower));
+    this.centersService.getCenters().subscribe(data => this.centers = data.filter(center => center.location.toLowerCase().includes(this.inputFilterLower)))
     console.log(this.centers)
   }
 }

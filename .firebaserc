@@ -6,9 +6,16 @@
           "femore-angular-ee033"
         ]
       }
+    },
+    "femore-proyecto": {
+      "hosting": {
+        "angular-project": [
+          "femore-proyecto"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "femore-angular-ee033"
+    "default": "femore-proyecto"
   }
 }

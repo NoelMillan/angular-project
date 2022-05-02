@@ -16,18 +16,16 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Centers Visited</th>
                 <th>Reviews</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user>
             <tr id="table-cursor" (click)="showDialogDelete(user)">
-                <td class="item"><b>{{user.id}}</b></td>
+                <td class="item"><b>{{user.userId}}</b></td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td class="item"><b>{{user.email}}</b></td>
-                <td>{{user.password}}</td>
                 <td id="first"><p-badge [value]="user.centersVisited"></p-badge></td>
                 <td id="second"><p-badge [value]="user.reviews"></p-badge></td>
             </tr>

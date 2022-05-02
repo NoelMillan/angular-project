@@ -1,7 +1,7 @@
 <div class="container-item">
     <div class="input-box">
     <span>
-        <p-dropdown placeholder="Location" [options]="singleLocation" [(ngModel)]="inputFilter" (ngModelChange)="valueChange()" [editable]="true" (input)="valueChange()"></p-dropdown>
+        <p-dropdown placeholder="Location" [options]="locations" [(ngModel)]="inputFilter" (ngModelChange)="valueChange()" [editable]="true" (input)="valueChange()"></p-dropdown>
     </span>
     </div>
     <div class="container-galleria">
@@ -23,8 +23,8 @@
             </div>
         </p-card>
     </div>
-    <div class="container-chart">
+    <!--<div class="container-chart">
         <h1>Media de visitas diarias</h1>
         <p-chart type="polarArea" [data]="data"></p-chart>
-    </div>
+    </div>-->
 </div>

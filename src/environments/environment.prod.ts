@@ -1,12 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'femore-angular-ee033',
-    appId: '1:1057489023380:web:950ead828a705f2d5f5f81',
-    storageBucket: 'femore-angular-ee033.appspot.com',
+    projectId: 'femore-proyecto',
+    appId: '1:679066037980:web:7a0dc2f2d66bb1ad3f8e19',
+    storageBucket: 'femore-proyecto.appspot.com',
     locationId: 'europe-west',
-    apiKey: 'AIzaSyB_zDmsYHBbOrt2rze557w_GDuGyzBzsTo',
-    authDomain: 'femore-angular-ee033.firebaseapp.com',
-    messagingSenderId: '1057489023380',
+    apiKey: 'AIzaSyDDsBWr3qEdPMnGSYIgOapYlj03H-RZ9dw',
+    authDomain: 'femore-proyecto.firebaseapp.com',
+    messagingSenderId: '679066037980',
   },
   production: true
 };

@@ -14,11 +14,11 @@ export class UsersService {
   constructor(private firestore: Firestore) { }
 
   public async addUser(user: User) {
-    await addDoc(collection(this.firestore, 'usuarios'), user);
+    await addDoc(collection(this.firestore, 'users'), user);
   }
 
   getUsers(): Observable<User[]> {
-    const collectionRef = collection(this.firestore, 'usuarios');
-    return collectionData(collectionRef, {idField: 'id'}) as Observable<User[]>;
+    const collectionRef = collection(this.firestore, 'users');
+    return collectionData(collectionRef, {idField: 'userId'}) as Observable<User[]>;
   }
 }
