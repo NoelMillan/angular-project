@@ -32,7 +32,7 @@
 p-galleria{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1260px) {
     .container-card {
         display: flex;
         justify-content: center;
@@ -45,4 +45,25 @@ p-galleria{
 }
 .input-box{
     margin-bottom: 50px;
+}
+#review-title{
+    color: black;
+}
+.container-reviews{
+    width: 75%;
+    margin: auto;
+    h4{
+        color: black;
+    }
+    .review-text{
+        font-size: 16px !important;
+        color: rgb(255, 137, 156) !important;
+    }
+    .container-rate{
+        margin-bottom: 1rem;
+        i{
+            color: #f1b400;
+            padding: .3rem;
+        }
+    }
 }

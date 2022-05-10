@@ -115,8 +115,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "angular-project:build:production",
-            "firebaseProject": "femore-proyecto",
-            "firebaseHostingSite": "femore-proyecto"
+            "firebaseProject": "femore-f005a",
+            "firebaseHostingSite": "femore-f005a"
           }
         }
       }

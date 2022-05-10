@@ -7,7 +7,7 @@
     <div class="container-galleria">
         <p-card>
             <div class="container-card">
-                <p-galleria [value]="centers" [containerStyle]="{'max-width': '550px', 'min-width': '550px'}" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true" [showThumbnails]="false" [(activeIndex)]="centerIndex">
+                <p-galleria [value]="centers" style="height: fit-content;" [containerStyle]="{'max-width': '550px', 'min-width': '550px'}" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true" [showThumbnails]="false" [(activeIndex)]="centerIndex">
                     <ng-template pTemplate="item" let-center>
                         <img src="{{centers[centerIndex].img}}" class="galleria-img">
                     </ng-template>
@@ -16,6 +16,32 @@
                     <span><b>{{centers[centerIndex].name}}</b></span>
                     <p-divider align="center"><span>{{centers[centerIndex].location}}</span></p-divider>
                     <span>{{centers[centerIndex].description}}</span>
+                    <h4 id="review-title">Reseñas</h4>
+                    <ng-container *ngIf="centers[centerIndex].reviews as reviews; else notReviews">
+                        <div class="container-reviews">
+                        <p-carousel [value]="reviews" [showIndicators]="false" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+                            <ng-template let-review pTemplate="item">
+                                        <div>
+                                            <div class="container-rate">
+                                                <i *ngIf="review.rate >= 1; else emptyStar" class="pi pi-star-fill"></i>
+                                                <i *ngIf="review.rate >= 2; else emptyStar" class="pi pi-star-fill"></i>
+                                                <i *ngIf="review.rate >= 3; else emptyStar" class="pi pi-star-fill"></i>
+                                                <i *ngIf="review.rate >= 4; else emptyStar" class="pi pi-star-fill"></i>
+                                                <i *ngIf="review.rate == 5; else emptyStar" class="pi pi-star-fill"></i>
+                                                <ng-template #emptyStar>
+                                                    <i class="pi pi-star"></i>
+                                                </ng-template>
+                                            </div>
+                                            <span class="review-text">{{review.review}}</span>
+                                            <h5>{{review.firstName}} {{review.lastName}}</h5>
+                                        </div>
+                            </ng-template>
+                        </p-carousel>
+                        </div>
+                    </ng-container>
+                    <ng-template #notReviews>
+                        <h5>No hay reseñas actualmente en este centro</h5>
+                    </ng-template>
                 </div>
                 <div *ngIf="centers.length == 0" class="container-card__text">
                     <span>No hay centros comerciales en la localidad {{inputFilter}}</span>

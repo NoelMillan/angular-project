@@ -27,12 +27,12 @@
                 <td>{{user.lastName}}</td>
                 <td class="item"><b>{{user.email}}</b></td>
                 <td id="first"><p-badge [value]="user.centersVisited"></p-badge></td>
-                <td id="second"><p-badge [value]="user.reviews"></p-badge></td>
+                <td id="second"><p-badge [value]="user.reviews.length"></p-badge></td>
             </tr>
         </ng-template>
     </p-table>
     <p-dialog header="{{userSelected.firstName}} {{userSelected.lastName}}" [(visible)]="displaydelete">
-        {{userSelected.firstName}} {{userSelected.lastName}} has visited <b>{{userSelected.centersVisited}}</b> centers and has <b>{{userSelected.reviews}}</b> reviews.
+        {{userSelected.firstName}} {{userSelected.lastName}} has visited <b>{{userSelected.centersVisited}}</b> centers and has <b>{{userSelected.reviews.length}}</b> reviews.
         <br>
         <br>
         <div class="dialog-container"><b>Do you want to delete this user?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>

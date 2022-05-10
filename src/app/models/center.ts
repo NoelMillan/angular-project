@@ -17,6 +17,7 @@ export interface Center {
 export interface Review {
     firstName: string,
     lastName: string,
+    center: string,
     review: string,
     rate: number
 }

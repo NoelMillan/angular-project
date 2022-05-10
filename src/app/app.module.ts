@@ -17,6 +17,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ChartModule} from 'primeng/chart';
 import {TimelineModule} from 'primeng/timeline';
 import {PasswordModule} from 'primeng/password';
+import {CarouselModule} from 'primeng/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     PanelModule,
     CardModule,
     TableModule,
+    CarouselModule,
     ConfirmDialogModule,
     BadgeModule,
     MessagesModule,

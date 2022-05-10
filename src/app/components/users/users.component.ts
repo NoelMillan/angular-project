@@ -15,14 +15,14 @@ import { Auth } from '@angular/fire/auth';
 })
 export class UsersComponent implements OnInit {
 
-  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: 0}
+  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: []}
   msgs: Message[] = [];
   displaydelete: boolean = false;
   displayuser: boolean = false;
 
   users: User[] = [];
 
-  user: User = {centersVisited: 0, reviews: 0, email: "", firstName: "", lastName: "", password: ""}
+  user: User = {centersVisited: 0, reviews: [], email: "", firstName: "", lastName: "", password: ""}
 
   constructor(public userService: UsersService, private confirmationService: ConfirmationService, private auth: Auth) {
     // this.users = this.userService.users;

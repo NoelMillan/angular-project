@@ -1,3 +1,4 @@
+import { Review } from './center';
 export interface User {
     userId?: string;
     firstName: string;
@@ -5,5 +6,5 @@ export interface User {
     email: string;
     password: string;
     centersVisited: number;
-    reviews: number;
+    reviews: Review[];
 }
