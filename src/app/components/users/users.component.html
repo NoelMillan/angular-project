@@ -5,7 +5,7 @@
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
                 <div class="title-box">
-                    <span class="item" id="item-title"><b>Users</b></span>
+                    <span class="item" id="item-title"><b>Usuarios</b></span>
                     <p-button class="item-button" icon="pi pi-plus" (click)="displayuser = true"></p-button>
                 </div>
             </div>
@@ -13,11 +13,10 @@
         <ng-template pTemplate="header">
             <tr>
                 <th>Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
                 <th>Email</th>
-                <th>Centers Visited</th>
-                <th>Reviews</th>
+                <th>Reseñas</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user>
@@ -26,16 +25,15 @@
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td class="item"><b>{{user.email}}</b></td>
-                <td id="first"><p-badge [value]="user.centersVisited"></p-badge></td>
                 <td id="second"><p-badge [value]="user.reviews.length"></p-badge></td>
             </tr>
         </ng-template>
     </p-table>
     <p-dialog header="{{userSelected.firstName}} {{userSelected.lastName}}" [(visible)]="displaydelete">
-        {{userSelected.firstName}} {{userSelected.lastName}} has visited <b>{{userSelected.centersVisited}}</b> centers and has <b>{{userSelected.reviews.length}}</b> reviews.
+        {{userSelected.firstName}} {{userSelected.lastName}} tiene <b>{{userSelected.reviews.length}}</b> reseñas hechas.
         <br>
         <br>
-        <div class="dialog-container"><b>Do you want to delete this user?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>
+        <div class="dialog-container"><b>¿Quieres eliminar este usuario?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>
     </p-dialog>
     <p-confirmDialog header="Confirmation" icon="pi pi-times-circle"></p-confirmDialog>
 
@@ -43,21 +41,21 @@
         <div class="p-col-12 p-md-4">
             <div class="p-inputgroup dialog-add">
                 <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="First Name" [(ngModel)]="user.firstName">         
+                <input type="text" pInputText placeholder="Nombre" [(ngModel)]="user.firstName">         
             </div>
             <div class="p-inputgroup dialog-add">
                 <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="Last Name" [(ngModel)]="user.lastName">         
+                <input type="text" pInputText placeholder="Apellidos" [(ngModel)]="user.lastName">         
             </div>
             <div class="p-inputgroup dialog-add">
                 <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
                 <input type="text" pInputText placeholder="Email" [(ngModel)]="user.email">         
             </div>
             <div style=" margin-bottom: 20px;">
-                <p-password placeholder="Password" [(ngModel)]="user.password" [toggleMask]="true"></p-password>      
+                <p-password placeholder="Contraseña" [(ngModel)]="user.password" [toggleMask]="true"></p-password>      
             </div>
         </div>
-        <div class="dialog-container"><b>Do you want to add this user?</b> <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-success" (click)="addUser()"></button></div>
+        <div class="dialog-container"><b>¿Quieres crear este usuario?</b> <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-success" (click)="addUser()"></button></div>
     </p-dialog>
     <p-confirmDialog header="Confirmation" icon="pi pi-times-circle"></p-confirmDialog>
 </div>

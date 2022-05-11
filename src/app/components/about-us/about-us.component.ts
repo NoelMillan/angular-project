@@ -13,10 +13,10 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.events = [
-      {status: 'Productivity', color: '#9C27B0'},
-      {status: 'Efficiency', color: '#673AB7'},
-      {status: 'Empathy', color: '#FF9800'},
-      {status: 'Teamwork', color: '#607D8B'}
+      {status: 'Productividad', color: '#9C27B0'},
+      {status: 'Eficiencia', color: '#673AB7'},
+      {status: 'Empatía', color: '#FF9800'},
+      {status: 'Cooperación', color: '#607D8B'}
   ];
   }
 

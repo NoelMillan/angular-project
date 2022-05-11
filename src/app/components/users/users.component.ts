@@ -25,7 +25,6 @@ export class UsersComponent implements OnInit {
   user: User = {centersVisited: 0, reviews: [], email: "", firstName: "", lastName: "", password: ""}
 
   constructor(public userService: UsersService, private confirmationService: ConfirmationService, private auth: Auth) {
-    // this.users = this.userService.users;
     this.userService.getUsers().subscribe(data => this.users = data);
   }
 
@@ -34,15 +33,15 @@ export class UsersComponent implements OnInit {
 
   confirm(user: User) {
     this.confirmationService.confirm({
-        message: 'Are you sure that you want to delete this user?',
+        message: '¿Estás seguro de que deseas eliminar este usuario?',
         accept: () => {
-          this.msgs = [{severity:'error', summary:'Deleted', detail:'You have deleted the user'}];
+          this.msgs = [{severity:'error', summary:'Eliminado', detail:`Has eliminado el usuario `+ user.email}];
           this.delete(user);
           this.displaydelete = false;
           this.confirmationService.close()
       },
         reject: () => {
-            this.msgs = [{severity:'warn', summary:'Rejected', detail:'You have rejected'}];
+            this.msgs = [{severity:'warn', summary:'Cancelado'}];
             this.displaydelete = false;
             this.confirmationService.close()
       }
