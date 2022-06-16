@@ -52,7 +52,7 @@
                 <input type="text" pInputText placeholder="Email" [(ngModel)]="user.email">         
             </div>
             <div style=" margin-bottom: 20px;">
-                <p-password placeholder="Contraseña" [(ngModel)]="user.password" [toggleMask]="true"></p-password>      
+                <p-password placeholder="Contraseña" [(ngModel)]="password" [toggleMask]="true"></p-password>      
             </div>
         </div>
         <div class="dialog-container"><b>¿Quieres crear este usuario?</b> <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-success" (click)="addUser()"></button></div>

@@ -15,14 +15,15 @@ import { Auth } from '@angular/fire/auth';
 })
 export class UsersComponent implements OnInit {
 
-  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", password: "", centersVisited: 0, reviews: []}
+  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", centersVisited: 0, reviews: []}
   msgs: Message[] = [];
   displaydelete: boolean = false;
   displayuser: boolean = false;
 
   users: User[] = [];
 
-  user: User = {centersVisited: 0, reviews: [], email: "", firstName: "", lastName: "", password: ""}
+  password = "";
+  user: User = {userId: undefined, centersVisited: 0, reviews: [], email: "", firstName: "", lastName: ""}
 
   constructor(public userService: UsersService, private confirmationService: ConfirmationService, private auth: Auth) {
     this.userService.getUsers().subscribe(data => this.users = data);
@@ -69,9 +70,10 @@ export class UsersComponent implements OnInit {
   }
 
   async addUser(){
-    const connectionSuccess = await this.register(this.user.email, this.user.password)
+    const connectionSuccess = await this.register(this.user.email, this.password)
 
     if(connectionSuccess){
+      this.user.userId = this.auth.currentUser?.uid
       this.userService.addUser(this.user)
     }
     else{
