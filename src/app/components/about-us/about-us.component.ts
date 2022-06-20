@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,8 @@ export class AboutUsComponent implements OnInit {
 
   events: any[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.events = [

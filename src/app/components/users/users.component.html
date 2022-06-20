@@ -17,6 +17,7 @@
                 <th>Apellidos</th>
                 <th>Email</th>
                 <th>Reseñas</th>
+                <th>Activo</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user>
@@ -26,6 +27,8 @@
                 <td>{{user.lastName}}</td>
                 <td class="item"><b>{{user.email}}</b></td>
                 <td id="second"><p-badge [value]="user.reviews.length"></p-badge></td>
+                <td *ngIf="user.isActive == true" id="second"><i class="pi pi-check badge-true"></i></td>
+                <td *ngIf="user.isActive == false" id="second"><i class="pi pi-times badge-false"></i></td>
             </tr>
         </ng-template>
     </p-table>
@@ -33,9 +36,10 @@
         {{userSelected.firstName}} {{userSelected.lastName}} tiene <b>{{userSelected.reviews.length}}</b> reseñas hechas.
         <br>
         <br>
-        <div class="dialog-container"><b>¿Quieres eliminar este usuario?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>
+        <div *ngIf="userSelected.isActive == true" class="dialog-container"><b>¿Quieres deshabilitar este usuario?</b> <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="confirm(userSelected)"></button></div>
+        <div *ngIf="userSelected.isActive == false" class="dialog-container"><b>¿Quieres habilitar este usuario?</b> <button pButton type="button" icon="pi pi-check" class="p-button-text p-button-success" (click)="confirm2(userSelected)"></button></div>
     </p-dialog>
-    <p-confirmDialog header="Confirmation" icon="pi pi-times-circle"></p-confirmDialog>
+    <p-confirmDialog header="Confirmación" icon="pi pi-times-circle"></p-confirmDialog>
 
     <p-dialog header="Agregar un usuario" [(visible)]="displayuser">
         <div class="p-col-12 p-md-4">
@@ -57,5 +61,5 @@
         </div>
         <div class="dialog-container"><b>¿Quieres crear este usuario?</b> <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-success" (click)="addUser()"></button></div>
     </p-dialog>
-    <p-confirmDialog header="Confirmation" icon="pi pi-times-circle"></p-confirmDialog>
+    <p-confirmDialog header="Confirmación" icon="pi pi-times-circle"></p-confirmDialog>
 </div>

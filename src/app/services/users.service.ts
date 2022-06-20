@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { collectionData } from 'rxfire/firestore';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,5 +20,8 @@ export class UsersService {
   getUsers(): Observable<User[]> {
     const collectionRef = collection(this.firestore, 'users');
     return collectionData(collectionRef, {idField: 'userId'}) as Observable<User[]>;
+  }
+  async updateUser(user: User) {
+    await setDoc(doc(this.firestore, `users/${user.userId}`), user);
   }
 }

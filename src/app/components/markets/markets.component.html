@@ -1,0 +1,27 @@
+<div class="container-item">
+    <p-table [value]="marketArray" [paginator]="false" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <div class="title-box">
+                    <span class="item" id="item-title"><b>Productos de supermercados</b></span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Supermercado</th>
+                <th>Tienda</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-market>
+            <tr id="table-cursor">
+                <td><a href="{{market[0]}}" target="_blank">{{market[3]}}</a></td>
+                <td class="item"><b>{{market[5]}}€</b></td>
+                <td>{{market[1]}}</td>
+                <td>{{market[2]}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

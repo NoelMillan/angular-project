@@ -18,7 +18,6 @@ import {ChartModule} from 'primeng/chart';
 import {TimelineModule} from 'primeng/timeline';
 import {PasswordModule} from 'primeng/password';
 import {CarouselModule} from 'primeng/carousel';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -30,16 +29,20 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { HttpClientModule } from '@angular/common/http';
+import { MarketsComponent } from './components/markets/markets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     CentersComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    MarketsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ButtonModule,

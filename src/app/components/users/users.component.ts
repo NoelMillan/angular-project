@@ -15,7 +15,7 @@ import { Auth } from '@angular/fire/auth';
 })
 export class UsersComponent implements OnInit {
 
-  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", centersVisited: 0, reviews: []}
+  userSelected: User = {userId: undefined, firstName: "", lastName: "", email: "", centersVisited: 0, reviews: [], isActive: true}
   msgs: Message[] = [];
   displaydelete: boolean = false;
   displayuser: boolean = false;
@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
 
   password = "";
-  user: User = {userId: undefined, centersVisited: 0, reviews: [], email: "", firstName: "", lastName: ""}
+  user: User = {userId: undefined, centersVisited: 0, reviews: [], email: "", firstName: "", lastName: "", isActive: true}
 
   constructor(public userService: UsersService, private confirmationService: ConfirmationService, private auth: Auth) {
     this.userService.getUsers().subscribe(data => this.users = data);
@@ -34,9 +34,9 @@ export class UsersComponent implements OnInit {
 
   confirm(user: User) {
     this.confirmationService.confirm({
-        message: '¿Estás seguro de que deseas eliminar este usuario?',
+        message: '¿Estás seguro de que deseas deshabilitar este usuario?',
         accept: () => {
-          this.msgs = [{severity:'error', summary:'Eliminado', detail:`Has eliminado el usuario `+ user.email}];
+          this.msgs = [{severity:'error', summary:'Deshabilitado', detail:`Has deshabilitado el usuario `+ user.email}];
           this.delete(user);
           this.displaydelete = false;
           this.confirmationService.close()
@@ -49,8 +49,31 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  confirm2(user: User) {
+    this.confirmationService.confirm({
+        message: '¿Estás seguro de que deseas habilitar este usuario?',
+        accept: () => {
+          this.msgs = [{severity:'success', summary:'Habilitado', detail:`Has habilitado el usuario `+ user.email}];
+          this.approve(user);
+          this.displaydelete = false;
+          this.confirmationService.close()
+      },
+        reject: () => {
+            this.msgs = [{severity:'warn', summary:'Cancelado'}];
+            this.displaydelete = false;
+            this.confirmationService.close()
+      }
+    });
+  }
+
   delete(user: User){
-    this.users.splice(this.users.indexOf(user), 1);
+    user.isActive = false;
+    this.userService.updateUser(user);
+  }
+
+  approve(user: User){
+    user.isActive = true;
+    this.userService.updateUser(user);
   }
 
   showDialogDelete(user: User) {

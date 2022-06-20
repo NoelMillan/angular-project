@@ -1,0 +1,39 @@
+th{
+    color: black !important;
+}
+.title-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item{
+        flex: 100;
+    }
+    .item-button{
+        flex: 1;
+    }
+}
+.dialog-add{
+    margin-bottom: 1rem;
+}
+.item{
+    color: black;
+}
+#item-title{
+    font-size: 18px;
+}
+tr#table-cursor:hover{
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+.dialog-container{
+    display: flex;
+    align-items: center;
+}
+.dialog-container button{
+    margin-left: 10px;
+    padding: .3rem;
+}
+a{
+    text-decoration: none;
+    color: #f0677d;
+}
